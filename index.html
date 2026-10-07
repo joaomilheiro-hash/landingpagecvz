@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CVZ Construções · Remodelação de Apartamentos em Lisboa</title>
+<meta name="description" content="Remodelamos o seu apartamento em Lisboa. Do projecto à obra terminada, com arquitectos e engenheiros. Orçamento fixo e prazo garantido.">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<!-- GTM -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NHL7C5GF');</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F8F7F4; --white:#FFFFFF;
+  --ink:#0E0D0B; --ink2:#3A3834; --ink3:#6A6864;
+  --border:#E4E1DC; --border2:#C8C4BE;
+  --cta:#B8732A; --cta-h:#9E6122;
+  --cta-light:#FDF4E8; --cta-border:#F0D4A8;
+  --max:1080px;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(248,247,244,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-i{max-width:var(--max);margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-logo{font-size:.875rem;font-weight:600;letter-spacing:.01em;color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-phone{font-size:.8rem;color:var(--ink2);display:flex;align-items:center;gap:5px}
+.btn-nav{background:var(--cta);color:#fff;border:none;border-radius:6px;padding:7px 14px;font-size:.8rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:5px;transition:background .15s}
+.btn-nav:hover{background:var(--cta-h)}
+
+/* HERO */
+.hero-wrap{background:var(--white);border-bottom:1px solid var(--border)}
+.hero{max-width:var(--max);margin:0 auto;padding:60px 24px 64px;display:grid;grid-template-columns:1fr 400px;gap:64px;align-items:start}
+.hero-eyebrow{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--cta);margin-bottom:14px}
+.hero h1{font-size:2.6rem;font-weight:700;line-height:1.15;letter-spacing:-.02em;color:var(--ink);margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--cta)}
+.hero-sub{font-size:1.05rem;color:var(--ink2);line-height:1.65;margin-bottom:28px;max-width:480px}
+.hero-trust{display:flex;flex-direction:column;gap:9px;margin-bottom:32px}
+.ht{display:flex;align-items:center;gap:8px;font-size:.83rem;color:var(--ink2)}
+.ht svg{color:var(--cta);flex-shrink:0}
+.hero-alts{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.btn-wa-outline{display:inline-flex;align-items:center;gap:7px;padding:10px 16px;border:1.5px solid var(--border2);border-radius:8px;font-size:.85rem;font-weight:500;color:var(--ink2);transition:border-color .15s,color .15s}
+.btn-wa-outline:hover{border-color:var(--ink);color:var(--ink)}
+.btn-tel{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;color:var(--ink3);transition:color .15s}
+.btn-tel:hover{color:var(--ink)}
+
+/* MOBILE CTA */
+.hero-mobile-cta{display:none;flex-direction:column;gap:10px}
+.btn-cta-hero{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--cta);color:#fff;border-radius:8px;padding:14px 20px;font-size:.95rem;font-weight:600;transition:background .15s}
+.btn-cta-hero:hover{background:var(--cta-h)}
+.btn-wa-hero{display:flex;align-items:center;justify-content:center;gap:8px;color:var(--ink2);font-size:.88rem;padding:8px}
+
+/* FORM CARD */
+.hero-form{background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:28px 24px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.hf-urgent{display:flex;align-items:center;gap:7px;font-size:.75rem;font-weight:600;color:var(--cta);margin-bottom:14px;letter-spacing:.02em}
+.dot-live{width:7px;height:7px;border-radius:50%;background:var(--cta);animation:pulse 1.8s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.3)}}
+@media(prefers-reduced-motion:reduce){.dot-live{animation:none}}
+.hf-title{font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:4px}
+.hf-sub{font-size:.78rem;color:var(--ink3);margin-bottom:18px}
+.form-ok{display:none;text-align:center;padding:20px 0}
+.form-ok-ico{width:44px;height:44px;border-radius:50%;background:var(--cta-light);display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.form-ok h4{font-size:1rem;font-weight:700;margin-bottom:6px}
+.form-ok p{font-size:.84rem;color:var(--ink2)}
+.field{margin-bottom:12px}
+.field label{display:block;font-size:.78rem;font-weight:600;color:var(--ink2);margin-bottom:5px}
+.lbl-opt{font-weight:400;color:var(--ink3)}
+.fi{width:100%;padding:9px 11px;border:1.5px solid var(--border);border-radius:7px;font-size:.88rem;color:var(--ink);background:var(--white);transition:border-color .15s;outline:none;appearance:none}
+.fi:focus{border-color:var(--cta)}
+.fi::placeholder{color:var(--ink3)}
+.rgpd{display:flex;align-items:flex-start;gap:8px;margin-bottom:14px;font-size:.75rem;color:var(--ink3);line-height:1.5}
+.rgpd input{margin-top:2px;accent-color:var(--cta);flex-shrink:0}
+.rgpd a{color:var(--cta);text-decoration:underline}
+.btn-submit{width:100%;background:var(--cta);color:#fff;border:none;border-radius:8px;padding:12px 16px;font-size:.92rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .15s;box-shadow:0 2px 8px rgba(184,115,42,.25)}
+.btn-submit:hover{background:var(--cta-h)}
+.btn-submit:disabled{opacity:.6;cursor:not-allowed}
+.form-note{text-align:center;font-size:.72rem;color:var(--ink3);margin-top:10px}
+
+/* BAND */
+.band{background:var(--ink);padding:12px 24px}
+.band-i{max-width:var(--max);margin:0 auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.band-lbl{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.45);letter-spacing:.06em;text-transform:uppercase;margin-right:4px}
+.c-pill{font-size:.78rem;color:rgba(255,255,255,.75);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:3px 10px}
+
+/* SECTIONS */
+.section{max-width:var(--max);margin:0 auto;padding:72px 24px}
+.s-ey{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cta);margin-bottom:10px}
+.s-title{font-size:2rem;font-weight:700;letter-spacing:-.025em;color:var(--ink);margin-bottom:12px;line-height:1.2}
+.s-title em{font-style:normal;color:var(--cta)}
+.s-sub{font-size:1rem;color:var(--ink2);max-width:560px;line-height:1.65}
+.bg-white{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.bg-light{background:var(--bg)}
+.divider{border:none;border-top:1px solid var(--border);max-width:var(--max);margin:0 auto}
+
+/* CASOS */
+.casos-hd{margin-bottom:40px}
+.casos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.caso{background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:22px 18px;transition:border-color .2s,box-shadow .2s}
+.caso:hover{border-color:var(--cta-border);box-shadow:0 4px 16px rgba(184,115,42,.08)}
+.caso-n{font-size:.72rem;font-weight:700;color:var(--cta);letter-spacing:.06em;margin-bottom:10px}
+.caso-ico{color:var(--ink);margin-bottom:12px;opacity:.7}
+.caso h3{font-size:.93rem;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.3}
+.caso p{font-size:.82rem;color:var(--ink2);line-height:1.55}
+
+/* PROCESSO */
+.proc-hd{margin-bottom:48px}
+.steps-wrap{position:relative}
+.steps-line{position:absolute;top:20px;left:20px;right:20px;height:1px;background:var(--border);z-index:0}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;z-index:1}
+.step{padding-top:0}
+.step-dot{width:40px;height:40px;border-radius:50%;background:var(--cta);color:#fff;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:16px;flex-shrink:0}
+.step h3{font-size:.92rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.step p{font-size:.82rem;color:var(--ink2);line-height:1.55}
+.step-time{display:inline-block;margin-top:8px;font-size:.72rem;font-weight:600;color:var(--cta);background:var(--cta-light);border:1px solid var(--cta-border);border-radius:20px;padding:2px 9px}
+.inc-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:40px;padding-top:40px;border-top:1px solid var(--border)}
+.inc-hd{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--ink3);margin-bottom:14px}
+.inc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.inc-list li{font-size:.85rem;color:var(--ink2);display:flex;align-items:flex-start;gap:8px}
+.inc-list li::before{content:"→";color:var(--cta);font-weight:700;flex-shrink:0;margin-top:1px}
+.inc-note{margin-top:16px;font-size:.8rem;color:var(--ink3);font-style:italic}
+
+/* PORTFOLIO */
+.porto-hd{margin-bottom:40px}
+.porto-zones{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.zone-btn{padding:6px 14px;border:1.5px solid var(--border2);border-radius:20px;font-size:.8rem;font-weight:500;color:var(--ink2);background:transparent;cursor:pointer;transition:all .15s}
+.zone-btn.active,.zone-btn:hover{background:var(--cta);color:#fff;border-color:var(--cta)}
+.porto-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.porto-card{background:var(--white);border:1.5px solid var(--border);border-radius:10px;overflow:hidden}
+.porto-img{height:160px;background:linear-gradient(135deg,#E8E4DC 0%,#D4CFC6 100%);display:flex;align-items:center;justify-content:center}
+.porto-img svg{opacity:.25}
+.porto-body{padding:16px}
+.porto-zone{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--cta);margin-bottom:4px}
+.porto-title{font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:4px}
+.porto-type{font-size:.78rem;color:var(--ink3)}
+
+/* STATS */
+.stats-section{background:var(--ink);padding:56px 24px}
+.stats-i{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.stat{text-align:center;flex:1}
+.stat-val{font-size:2.4rem;font-weight:800;color:#fff;letter-spacing:-.03em;line-height:1}
+.stat-lbl{font-size:.8rem;color:rgba(255,255,255,.55);margin-top:6px}
+.stats-cta{text-align:center;flex:0 0 auto}
+.stats-cta p{font-size:.9rem;color:rgba(255,255,255,.7);margin-bottom:14px}
+.btn-wa-inv{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:11px 18px;font-size:.88rem;font-weight:600;transition:background .15s}
+.btn-wa-inv:hover{background:rgba(255,255,255,.18)}
+
+/* REVIEWS */
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.rev{background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:20px}
+.rev-stars{color:#F5A623;font-size:1rem;margin-bottom:10px;letter-spacing:1px}
+.rev-text{font-size:.88rem;color:var(--ink2);line-height:1.6;margin-bottom:14px;font-style:italic}
+.rev-meta{display:flex;flex-direction:column;gap:2px}
+.rev-meta strong{font-size:.84rem;color:var(--ink)}
+.rev-meta span{font-size:.76rem;color:var(--ink3)}
+
+/* FAQ */
+.faq-wrap{margin-top:36px;border-top:1px solid var(--border)}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;background:none;border:none;padding:18px 0;font-size:.95rem;font-weight:600;color:var(--ink);text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color .15s}
+.faq-q:hover{color:var(--cta)}
+.faq-q svg{flex-shrink:0;transition:transform .2s;color:var(--ink3)}
+.faq-item.open .faq-q svg{transform:rotate(45deg);color:var(--cta)}
+.faq-a{display:none;padding:0 0 18px;font-size:.88rem;color:var(--ink2);line-height:1.7;max-width:680px}
+.faq-item.open .faq-a{display:block}
+
+/* CONTACTO */
+.calt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:32px}
+.calt{display:flex;align-items:center;gap:14px;padding:18px 16px;background:var(--white);border:1.5px solid var(--border);border-radius:10px;transition:border-color .2s,box-shadow .2s}
+.calt:hover{border-color:var(--border2);box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.calt-ico{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ico-amber{background:var(--cta-light);color:var(--cta)}
+.ico-dark{background:#F2F1EF;color:var(--ink)}
+.calt-text{display:flex;flex-direction:column;gap:2px;min-width:0}
+.calt-text strong{font-size:.88rem;color:var(--ink)}
+.calt-text span{font-size:.78rem;color:var(--ink3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* FOOTER */
+footer{background:var(--ink);padding:32px 24px}
+.ft-i{max-width:var(--max);margin:0 auto}
+.ft-top{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:20px;flex-wrap:wrap}
+.ft-brand{font-size:.9rem;font-weight:700;color:#fff}
+.ft-links{display:flex;gap:20px;flex-wrap:wrap}
+.ft-link{font-size:.78rem;color:rgba(255,255,255,.5);transition:color .15s}
+.ft-link:hover{color:rgba(255,255,255,.9)}
+.ft-copy{font-size:.72rem;color:rgba(255,255,255,.3);border-top:1px solid rgba(255,255,255,.08);padding-top:16px;display:block}
+
+/* FLOAT WA */
+.float-wa{position:fixed;bottom:20px;right:20px;z-index:200;width:52px;height:52px;border-radius:50%;background:#25D366;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.18);transition:transform .2s}
+@media(hover:hover){.float-wa:hover{transform:scale(1.08)}}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;gap:40px}
+  .hero h1{font-size:2rem}
+  .hero-alts{display:none}
+  .hero-mobile-cta{display:flex}
+  .casos-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .steps-line{display:none}
+  .porto-grid{grid-template-columns:repeat(2,1fr)}
+  .reviews-grid{grid-template-columns:1fr}
+  .calt-grid{grid-template-columns:1fr}
+  .stats-i{flex-direction:column;gap:32px;text-align:center}
+  .inc-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .casos-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .porto-grid{grid-template-columns:1fr}
+  .ft-top{flex-direction:column;gap:16px}
+  .ft-links{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHL7C5GF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- NAV -->
+<nav aria-label="Principal">
+  <div class="nav-i">
+    <a class="nav-logo" href="https://cvz-construcoes.pt" target="_blank" rel="noopener">CVZ Construções</a>
+    <div class="nav-right">
+      <a href="tel:+351XXXXXXXXX" class="nav-phone">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.04z"/></svg>
+        +351 XXX XXX XXX
+      </a>
+      <a href="#form" class="btn-nav" onclick="ev('nav_cta')">Orçamento gratuito</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero-wrap">
+<div class="hero">
+  <div>
+    <p class="hero-eyebrow">Remodelação · Lisboa</p>
+    <h1>Remodelamos<br>o seu apartamento<br>em <em>Lisboa.</em></h1>
+    <p class="hero-sub">Do projecto à obra terminada, com arquitectos e engenheiros da nossa equipa. Orçamento fixo e prazo garantido antes de iniciar.</p>
+    <div class="hero-trust">
+      <span class="ht">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Equipa própria — sem subempreiteiros
+      </span>
+      <span class="ht">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Orçamento fixo antes de assinar
+      </span>
+      <span class="ht">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Resposta em menos de 24 horas
+      </span>
+    </div>
+    <div class="hero-alts">
+      <a href="https://wa.me/351XXXXXXXXX?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20remodelação." class="btn-wa-outline" target="_blank" rel="noopener" onclick="ev('hero_wa')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        WhatsApp
+      </a>
+      <a href="tel:+351XXXXXXXXX" class="btn-tel" onclick="ev('hero_call')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.04z"/></svg>
+        Ligar
+      </a>
+    </div>
+    <div class="hero-mobile-cta">
+      <a href="#form" class="btn-cta-hero" onclick="ev('hero_cta_mobile')">
+        Pedir orçamento gratuito
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="https://wa.me/351XXXXXXXXX?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20remodelação." class="btn-wa-hero" target="_blank" rel="noopener" onclick="ev('hero_wa_mobile')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        Ou contacte pelo WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <div id="form" class="hero-form">
+    <div class="hf-urgent"><span class="dot-live" aria-hidden="true"></span>Disponível para novos projectos</div>
+    <h2 class="hf-title">Orçamento gratuito</h2>
+    <p class="hf-sub">Sem compromisso · Resposta em menos de 24h</p>
+    <div id="form-ok" class="form-ok" aria-live="polite">
+      <div class="form-ok-ico">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cta)" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h4>Pedido enviado!</h4>
+      <p>Respondemos em menos de 24 horas.<br>Pode também contactar pelo WhatsApp.</p>
+    </div>
+    <form id="main-form" novalidate onsubmit="submitForm(event)">
+      <div class="field">
+        <label for="f-name">Nome *</label>
+        <input class="fi" type="text" id="f-name" placeholder="O seu nome" required autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="f-tel">Telefone *</label>
+        <input class="fi" type="tel" id="f-tel" placeholder="+351 9xx xxx xxx" required autocomplete="tel">
+      </div>
+      <div class="field">
+        <label for="f-tipo">Tipo de obra *</label>
+        <select class="fi" id="f-tipo" required>
+          <option value="">Seleccione...</option>
+          <option value="cozinha-casa-banho">Cozinha e/ou casa de banho</option>
+          <option value="apartamento-completo">Apartamento completo</option>
+          <option value="reabilitacao">Reabilitação com estrutura</option>
+          <option value="preparar-venda">Preparar para venda ou arrendamento</option>
+          <option value="outro">Outro</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-budget">Intervalo de investimento *</label>
+        <select class="fi" id="f-budget" required>
+          <option value="">Seleccione...</option>
+          <option value="menos-10k">Menos de 10.000 €</option>
+          <option value="10k-30k">10.000 — 30.000 €</option>
+          <option value="30k-80k">30.000 — 80.000 €</option>
+          <option value="mais-80k">Mais de 80.000 €</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-email">Email <span class="lbl-opt">(opcional)</span></label>
+        <input class="fi" type="email" id="f-email" placeholder="o.seu@email.com" autocomplete="email">
+      </div>
+      <div class="rgpd">
+        <input type="checkbox" id="f-rgpd" required>
+        <label for="f-rgpd">Aceito a <a href="#">Política de Privacidade</a> e autorizo o contacto para resposta a esta solicitação.</label>
+      </div>
+      <button type="submit" class="btn-submit" id="btn-submit">
+        Pedir orçamento gratuito
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <p class="form-note">Sem custos · Sem compromisso</p>
+    </form>
+  </div>
+</div>
+</div>
+
+<!-- ZONA -->
+<div class="band" aria-label="Área de actuação">
+  <div class="band-i">
+    <span class="band-lbl">Área de actuação</span>
+    <span class="c-pill">Lisboa</span>
+    <span class="c-pill">Cascais</span>
+    <span class="c-pill">Oeiras</span>
+    <span class="c-pill">Sintra</span>
+    <span class="c-pill">Amadora</span>
+    <span class="c-pill">Odivelas</span>
+    <span class="c-pill">Loures</span>
+  </div>
+</div>
+
+<!-- CASOS -->
+<div class="bg-white">
+<section class="section" aria-labelledby="casos-h">
+  <div class="casos-hd">
+    <p class="s-ey">O seu projecto</p>
+    <h2 class="s-title" id="casos-h">Que tipo de obra <em>tem em mente?</em></h2>
+    <p class="s-sub">Tratamos de remodelações em apartamentos na Grande Lisboa, do projecto à entrega.</p>
+  </div>
+  <div class="casos-grid">
+    <div class="caso">
+      <div class="caso-n">01</div>
+      <div class="caso-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <h3>Cozinha ou casa de banho</h3>
+      <p>Renovação parcial com novos acabamentos, canalizações, electricidade e revestimentos.</p>
+    </div>
+    <div class="caso">
+      <div class="caso-n">02</div>
+      <div class="caso-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+      <h3>Apartamento completo</h3>
+      <p>Remodelação integral — layout, acabamentos, instalações e design de interiores integrado.</p>
+    </div>
+    <div class="caso">
+      <div class="caso-n">03</div>
+      <div class="caso-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+      <h3>Reabilitação estrutural</h3>
+      <p>Obras com intervenção na estrutura, lajes, paredes mestras ou reabilitação de edifício antigo.</p>
+    </div>
+    <div class="caso">
+      <div class="caso-n">04</div>
+      <div class="caso-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <h3>Preparar para venda</h3>
+      <p>Remodelação estratégica para valorizar o imóvel antes de colocar no mercado.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<hr class="divider">
+
+<!-- PROCESSO -->
+<div class="bg-light">
+<section class="section" aria-labelledby="proc-h">
+  <div class="proc-hd">
+    <p class="s-ey">Como funciona</p>
+    <h2 class="s-title" id="proc-h">Do primeiro contacto à <em>obra entregue</em></h2>
+    <p class="s-sub">Quatro fases com prazos definidos. Mantemos o cliente informado em cada etapa.</p>
+  </div>
+  <div class="steps-wrap">
+    <div class="steps-line" aria-hidden="true"></div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-dot" aria-hidden="true">01</div>
+        <h3>Visita e orçamento</h3>
+        <p>Visitamos o imóvel, avaliamos o estado e o âmbito da obra. Orçamento sem custos e sem compromisso.</p>
+        <span class="step-time">1–3 dias</span>
+      </div>
+      <div class="step">
+        <div class="step-dot" aria-hidden="true">02</div>
+        <h3>Projecto e contrato</h3>
+        <p>Desenvolvemos o projecto com a nossa equipa. Preço fixo e prazo garantido antes de assinar.</p>
+        <span class="step-time">1–2 semanas</span>
+      </div>
+      <div class="step">
+        <div class="step-dot" aria-hidden="true">03</div>
+        <h3>Execução da obra</h3>
+        <p>Equipa própria em obra, com acompanhamento diário por arquitecto ou engenheiro responsável.</p>
+        <span class="step-time">4–16 semanas</span>
+      </div>
+      <div class="step">
+        <div class="step-dot" aria-hidden="true">04</div>
+        <h3>Entrega e pós-obra</h3>
+        <p>Vistoria final conjunta, resolução de acabamentos e acompanhamento no período pós-entrega.</p>
+        <span class="step-time">Garantia incluída</span>
+      </div>
+    </div>
+  </div>
+  <div class="inc-grid">
+    <div class="inc-col">
+      <div class="inc-hd">Incluído no serviço</div>
+      <ul class="inc-list">
+        <li>Projecto de arquitectura e interiores</li>
+        <li>Coordenação de todas as especialidades</li>
+        <li>Equipa própria de construção</li>
+        <li>Gestão de materiais e fornecedores</li>
+        <li>Actualizações regulares do estado da obra</li>
+      </ul>
+    </div>
+    <div class="inc-col">
+      <div class="inc-hd">Garantias e condições</div>
+      <ul class="inc-list">
+        <li>Visita e orçamento sem qualquer custo</li>
+        <li>Preço fixo — sem surpresas a meio da obra</li>
+        <li>Prazo garantido por contrato</li>
+        <li>Garantia pós-obra incluída</li>
+      </ul>
+      <p class="inc-note">Respondemos a todas as consultas em menos de 24 horas.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- PORTFOLIO -->
+<div class="bg-white">
+<section class="section" aria-labelledby="porto-h">
+  <div class="porto-hd">
+    <p class="s-ey">Portfólio</p>
+    <h2 class="s-title" id="porto-h">Obras concluídas <em>em Lisboa</em></h2>
+    <p class="s-sub">Projectos de remodelação e reabilitação em apartamentos na cidade.</p>
+  </div>
+  <div class="porto-grid">
+    <div class="porto-card">
+      <div class="porto-img" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+      <div class="porto-body">
+        <div class="porto-zone">Estrela</div>
+        <div class="porto-title">Rua de São Bento</div>
+        <div class="porto-type">Apartamento · Remodelação completa</div>
+      </div>
+    </div>
+    <div class="porto-card">
+      <div class="porto-img" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+      <div class="porto-body">
+        <div class="porto-zone">Campo de Ourique</div>
+        <div class="porto-title">Artilharia 1</div>
+        <div class="porto-type">Apartamento · Reabilitação</div>
+      </div>
+    </div>
+    <div class="porto-card">
+      <div class="porto-img" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+      <div class="porto-body">
+        <div class="porto-zone">Alvalade</div>
+        <div class="porto-title">Avenida de Roma</div>
+        <div class="porto-type">Apartamento · Remodelação completa</div>
+      </div>
+    </div>
+    <div class="porto-card">
+      <div class="porto-img" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+      <div class="porto-body">
+        <div class="porto-zone">Campo Grande</div>
+        <div class="porto-title">Campo Grande</div>
+        <div class="porto-type">Apartamento · Reabilitação</div>
+      </div>
+    </div>
+    <div class="porto-card">
+      <div class="porto-img" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+      <div class="porto-body">
+        <div class="porto-zone">Rato</div>
+        <div class="porto-title">Largo do Rato</div>
+        <div class="porto-type">Apartamento · Remodelação parcial</div>
+      </div>
+    </div>
+    <div class="porto-card">
+      <div class="porto-img" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+      <div class="porto-body">
+        <div class="porto-zone">Oeiras</div>
+        <div class="porto-title">Caxias</div>
+        <div class="porto-type">Apartamento · Reabilitação completa</div>
+      </div>
+    </div>
+    <div class="porto-card">
+      <div class="porto-img" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+      <div class="porto-body">
+        <div class="porto-zone">São Sebastião</div>
+        <div class="porto-title">Avenida de Berna</div>
+        <div class="porto-type">Apartamento · Remodelação completa</div>
+      </div>
+    </div>
+    <div class="porto-card">
+      <div class="porto-img" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+      <div class="porto-body">
+        <div class="porto-zone">Campo de Ourique</div>
+        <div class="porto-title">Campo de Ourique</div>
+        <div class="porto-type">Apartamento · Reabilitação</div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- STATS -->
+<div class="stats-section">
+  <div class="stats-i">
+    <div class="stat">
+      <div class="stat-val">8+</div>
+      <div class="stat-lbl">Projectos concluídos</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">15+</div>
+      <div class="stat-lbl">Anos de experiência</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">24h</div>
+      <div class="stat-lbl">Resposta garantida</div>
+    </div>
+    <div class="stats-cta">
+      <p>Pretende saber o que é possível fazer?</p>
+      <a href="https://wa.me/351XXXXXXXXX?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20remodelação." class="btn-wa-inv" target="_blank" rel="noopener" onclick="ev('stats_wa')">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        Falar pelo WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<div class="bg-light">
+<section class="section" aria-labelledby="reviews-h">
+  <p class="s-ey">Clientes reais</p>
+  <h2 class="s-title" id="reviews-h">O que dizem os <em>nossos clientes</em></h2>
+  <p class="s-sub">Proprietários de apartamentos em Lisboa que confiaram à CVZ a sua remodelação.</p>
+  <div class="reviews-grid">
+    <div class="rev">
+      <div class="rev-stars" aria-hidden="true">★★★★★</div>
+      <p class="rev-text">"Projecto e obra supervisionados por arquitectos e engenheiros que demonstraram conhecimento e confiança na execução, dando-nos sempre tranquilidade."</p>
+      <div class="rev-meta"><strong>Graça Ferraz</strong><span>Proprietária · Lisboa</span></div>
+    </div>
+    <div class="rev">
+      <div class="rev-stars" aria-hidden="true">★★★★★</div>
+      <p class="rev-text">"Destaco a rapidez e a capacidade de adaptação e resposta aos vários desafios que são normais durante a execução de um projecto."</p>
+      <div class="rev-meta"><strong>Hugo Monteiro</strong><span>Proprietário · Lisboa</span></div>
+    </div>
+    <div class="rev">
+      <div class="rev-stars" aria-hidden="true">★★★★★</div>
+      <p class="rev-text">"O apartamento ganhou tanto valor que recebi uma proposta que não pude recusar. São verdadeiros game changers na aquisição de imóveis em Lisboa."</p>
+      <div class="rev-meta"><strong>Telmo Veloso</strong><span>Proprietário · Lisboa</span></div>
+    </div>
+    <div class="rev">
+      <div class="rev-stars" aria-hidden="true">★★★★★</div>
+      <p class="rev-text">"Foram demasiado bons. Não me vejo a ir a outro lado tão cedo."</p>
+      <div class="rev-meta"><strong>Cláudia Mendes</strong><span>Proprietária · Lisboa</span></div>
+    </div>
+    <div class="rev">
+      <div class="rev-stars" aria-hidden="true">★★★★★</div>
+      <p class="rev-text">"Começou numa simples redefinição de cozinha e acabou num projecto estruturante para a casa. Concluído num excelente equilíbrio."</p>
+      <div class="rev-meta"><strong>Francisco Costa</strong><span>Proprietário · Lisboa</span></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- FAQ -->
+<div class="bg-white">
+<section class="section" aria-labelledby="faq-h">
+  <p class="s-ey">Dúvidas frequentes</p>
+  <h2 class="s-title" id="faq-h">Perguntas frequentes</h2>
+  <div class="faq-wrap">
+    <div class="faq-item">
+      <button class="faq-q" onclick="faq(this)" aria-expanded="false">Quanto tempo demora uma remodelação?<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+      <div class="faq-a">Depende da dimensão e complexidade da obra. Uma remodelação de cozinha ou casa de banho demora tipicamente 4 a 6 semanas. Um apartamento completo pode demorar 10 a 16 semanas. O prazo é definido antes de assinar o contrato e é garantido.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="faq(this)" aria-expanded="false">Trabalham com equipa própria ou subempreiteiros?<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+      <div class="faq-a">Trabalhamos com equipa própria em todas as obras. Isso permite-nos controlar a qualidade de execução, os prazos e a comunicação directa com o cliente em todo o processo. Não dependemos de subempreiteiros externos.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="faq(this)" aria-expanded="false">O orçamento pode mudar durante a obra?<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+      <div class="faq-a">Não, desde que o âmbito da obra não se altere. O valor contratado é o valor final. Se o cliente decidir acrescentar trabalhos não previstos, apresentamos um adicional antes de executar — nunca sem aprovação prévia.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="faq(this)" aria-expanded="false">A obra precisa de licença da Câmara?<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+      <div class="faq-a">Depende do tipo de intervenção. Obras interiores de conservação (acabamentos, pavimentos, canalizações) geralmente não precisam de licença. Obras que alterem estrutura, fachada ou uso do imóvel requerem aprovação camarária. Identificamos o que é necessário no orçamento inicial.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="faq(this)" aria-expanded="false">Posso remodelar enquanto o apartamento está arrendado?<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+      <div class="faq-a">Depende do âmbito da obra e dos acordos com o inquilino. Em obras de remodelação integral, o imóvel precisa de estar desocupado. Para intervenções mais pequenas e bem delimitadas, avaliamos caso a caso. Clarificamos a situação na visita inicial.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="faq(this)" aria-expanded="false">Como funciona o orçamento gratuito?<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+      <div class="faq-a">Basta preencher o formulário ou enviar mensagem pelo WhatsApp. Visitamos o imóvel, avaliamos o estado e o âmbito da obra, e apresentamos um orçamento detalhado. Sem qualquer custo ou compromisso de avançar.</div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- CONTACTO -->
+<div class="bg-light">
+<section class="section" aria-labelledby="calt-h">
+  <p class="s-ey">Contacto directo</p>
+  <h2 class="s-title" id="calt-h">Prefere falar connosco?</h2>
+  <p class="s-sub">Contacte pelo canal da sua preferência. Respondemos em horário laboral.</p>
+  <div class="calt-grid">
+    <a href="https://wa.me/351XXXXXXXXX?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20remodelação." class="calt" target="_blank" rel="noopener" onclick="ev('alt_wa')">
+      <span class="calt-ico ico-amber"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></span>
+      <span class="calt-text"><strong>WhatsApp Business</strong><span>+351 XXX XXX XXX · resposta rápida</span></span>
+    </a>
+    <a href="tel:+351XXXXXXXXX" class="calt" onclick="ev('alt_call')">
+      <span class="calt-ico ico-dark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.04z"/></svg></span>
+      <span class="calt-text"><strong>Chamada telefónica</strong><span>+351 XXX XXX XXX</span></span>
+    </a>
+    <a href="mailto:info@cvz-construcoes.pt" class="calt" onclick="ev('alt_email')">
+      <span class="calt-ico ico-dark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+      <span class="calt-text"><strong>Email</strong><span>info@cvz-construcoes.pt</span></span>
+    </a>
+  </div>
+</section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-i">
+    <div class="ft-top">
+      <span class="ft-brand">CVZ Construções</span>
+      <div class="ft-links">
+        <a href="tel:+351XXXXXXXXX" class="ft-link">+351 XXX XXX XXX</a>
+        <a href="mailto:info@cvz-construcoes.pt" class="ft-link">info@cvz-construcoes.pt</a>
+        <a href="https://wa.me/351XXXXXXXXX" class="ft-link" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://cvz-construcoes.pt" class="ft-link" target="_blank" rel="noopener">cvz-construcoes.pt</a>
+      </div>
+    </div>
+    <span class="ft-copy">© 2026 CVZ Construções · Avenida da República · 1050-188 Lisboa, Portugal</span>
+  </div>
+</footer>
+
+<!-- FLOAT WA -->
+<button class="float-wa" onclick="window.open('https://wa.me/351XXXXXXXXX?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20remodelação.','_blank');ev('float_wa')" aria-label="Contactar pelo WhatsApp">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+</button>
+
+<script>
+function faq(btn){
+  var it=btn.closest('.faq-item'),was=it.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){
+    i.classList.remove('open');
+    i.querySelector('.faq-q').setAttribute('aria-expanded','false');
+  });
+  if(!was){it.classList.add('open');btn.setAttribute('aria-expanded','true');}
+}
+
+async function submitForm(e){
+  e.preventDefault();
+  var btn=document.getElementById('btn-submit');
+  btn.disabled=true;btn.textContent='A enviar…';
+  var payload={
+    name:document.getElementById('f-name').value.trim(),
+    email:document.getElementById('f-email').value.trim()||null,
+    phone:document.getElementById('f-tel').value.trim(),
+    project_type:document.getElementById('f-tipo').value,
+    budget:document.getElementById('f-budget').value,
+    message:null
+  };
+  try{
+    var r=await fetch('https://erigsvepjkydtjntkjou.supabase.co/rest/v1/leads',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'apikey':'sb_publishable_B7mzQotsoND8V59-Ep0b0w_tmTawxts',
+        'Authorization':'Bearer sb_publishable_B7mzQotsoND8V59-Ep0b0w_tmTawxts',
+        'Prefer':'return=minimal'
+      },
+      body:JSON.stringify(payload)
+    });
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    ev('form_submit_remodelacao');
+    document.getElementById('main-form').style.display='none';
+    document.getElementById('form-ok').style.display='block';
+  }catch(err){
+    btn.disabled=false;
+    btn.innerHTML='Pedir orçamento gratuito <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+    alert('Ocorreu um erro. Por favor contacte-nos directamente pelo WhatsApp.');
+  }
+}
+
+function ev(n){if(window.dataLayer)window.dataLayer.push({event:n});}
+var sf={};
+window.addEventListener('scroll',function(){
+  var p=Math.round(scrollY/(document.body.scrollHeight-innerHeight)*100);
+  [25,50,75,100].forEach(function(d){if(p>=d&&!sf[d]){sf[d]=true;ev('scroll_'+d);}});
+},{passive:true});
+</script>
+</body>
+</html>
