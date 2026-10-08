@@ -8,7 +8,7 @@ const TO = [
 ];
 
 const FROM_CVZ      = 'leads@remodelacoes.cvz-construcoes.pt';
-const FROM_PROJETOS = 'leads@brunocamaraarquitectos.com';
+const FROM_PROJETOS = 'leads@projetos.brunocamaraarquitectos.com';
 
 const PROJECT_TYPES = {
   'cozinha-casa-banho':  'Cozinha e/ou casa de banho',
