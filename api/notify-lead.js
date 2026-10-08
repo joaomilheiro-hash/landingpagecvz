@@ -7,14 +7,19 @@ const TO = [
   'mab-cm@mabimagination.com',
 ];
 
-const FROM = 'leads@remodelacoes.cvz-construcoes.pt';
+const FROM_CVZ      = 'leads@remodelacoes.cvz-construcoes.pt';
+const FROM_PROJETOS = 'leads@brunocamaraarquitectos.com';
 
 const PROJECT_TYPES = {
-  'cozinha-casa-banho': 'Cozinha e/ou casa de banho',
-  'apartamento-completo': 'Apartamento completo',
-  'remodelacao-estrutura': 'Remodelação com estrutura',
-  'preparar-venda': 'Preparar para venda ou arrendamento',
-  'outro': 'Outro',
+  'cozinha-casa-banho':  'Cozinha e/ou casa de banho',
+  'apartamento-completo':'Apartamento completo',
+  'remodelacao-estrutura':'Remodelação com estrutura',
+  'preparar-venda':      'Preparar para venda ou arrendamento',
+  'licenciamento':       'Licenciamento de obra',
+  'regularizacao':       'Regularização',
+  'alteracao-uso':       'Alteração de uso',
+  'comunicacao-previa':  'Comunicação prévia',
+  'outro':               'Outro',
 };
 
 export default async function handler(req) {
@@ -38,15 +43,19 @@ export default async function handler(req) {
   const record = body.record || body;
   const { name, phone, email, project_type, source, created_at } = record;
 
-  const tipoLabel = PROJECT_TYPES[project_type] || project_type || '—';
-  const sourceLabel = source === 'projetos' ? 'Bruno Câmara Arquitectos — Projetos' : 'CVZ Construções — Remodelação';
+  const isProjetos  = source === 'projetos';
+  const tipoLabel   = PROJECT_TYPES[project_type] || project_type || '—';
+  const sourceLabel = isProjetos ? 'Bruno Câmara Arquitectos — Projetos' : 'CVZ Construções — Remodelação';
+  const fromEmail   = isProjetos ? FROM_PROJETOS : FROM_CVZ;
+  const headerColor = isProjetos ? '#0D6B38' : '#1E7B50';
+  const siteLabel   = isProjetos ? 'projetos.brunocamaraarquitectos.com' : 'remodelacoes.cvz-construcoes.pt';
   const dataHora = created_at
     ? new Date(created_at).toLocaleString('pt-PT', { timeZone: 'Europe/Lisbon' })
     : new Date().toLocaleString('pt-PT', { timeZone: 'Europe/Lisbon' });
 
   const html = `
 <div style="font-family:sans-serif;max-width:520px;margin:0 auto;color:#111">
-  <div style="background:#1E7B50;padding:20px 28px;border-radius:10px 10px 0 0">
+  <div style="background:${headerColor};padding:20px 28px;border-radius:10px 10px 0 0">
     <p style="margin:0;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6)">Novo lead</p>
     <h1 style="margin:6px 0 0;font-size:1.2rem;color:#fff;font-weight:700">${sourceLabel}</h1>
   </div>
@@ -62,7 +71,7 @@ export default async function handler(req) {
     <div style="margin-top:20px;padding-top:16px;border-top:1px solid #f0f0f0">
       <a href="https://wa.me/351${(phone || '').replace(/\D/g,'')}" style="display:inline-block;background:#1E7B50;color:#fff;border-radius:100px;padding:10px 20px;font-size:.85rem;font-weight:600;text-decoration:none">Responder pelo WhatsApp</a>
     </div>
-    <p style="margin-top:20px;font-size:.75rem;color:#aaa">remodelacoes.cvz-construcoes.pt</p>
+    <p style="margin-top:20px;font-size:.75rem;color:#aaa">${siteLabel}</p>
   </div>
 </div>`;
 
@@ -74,9 +83,9 @@ export default async function handler(req) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: FROM,
+        from: fromEmail,
         to: TO,
-        subject: `Novo lead — ${name || 'sem nome'} · ${tipoLabel} · ${source === 'projetos' ? 'BCA Projetos' : 'CVZ'}`,
+        subject: `Novo lead — ${name || 'sem nome'} · ${tipoLabel} · ${isProjetos ? 'BCA Projetos' : 'CVZ'}`,
         html,
       }),
     });
