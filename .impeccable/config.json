@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-08T09:09:08.745Z",
+        "reason": "intentional: all uppercase is on short decorative eyebrow labels (1-4 words) not body text; design choice for section pills and zone tags"
+      }
+    ]
+  }
+}
