@@ -11,6 +11,15 @@
         ],
         "createdAt": "2026-10-08T09:09:08.745Z",
         "reason": "intentional: all uppercase is on short decorative eyebrow labels (1-4 words) not body text; design choice for section pills and zone tags"
+      },
+      {
+        "rule": "kicker-above-heading",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-08T09:22:10.504Z",
+        "reason": "intentional: eyebrow pills are navigation anchors on a long LP, not decorative kickers; user confirmed keep"
       }
     ]
   }
