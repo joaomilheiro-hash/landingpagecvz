@@ -91,6 +91,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 24px;display:fl
 .btn-submit-ico{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s var(--ease-out)}
 .btn-submit:hover .btn-submit-ico{transform:translateX(2px) translateY(-1px) scale(1.05)}
 .form-note{text-align:center;font-size:.76rem;color:var(--ink3);margin-top:10px}
+.fi-err{border-color:#C0392B!important;box-shadow:0 0 0 3px rgba(192,57,43,.12)!important}
+.field-err-msg{font-size:.73rem;color:#C0392B;margin-top:4px;display:none}
+.fi-err~.field-err-msg{display:block}
+.rgpd-err label{color:var(--ink2)}
 
 /* MOBILE HERO */
 .hero-mobile-cta{display:none;flex-direction:column;gap:10px}
@@ -344,7 +348,7 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
 <div class="hero">
   <div>
     <p class="hero-ey reveal"><span class="hero-ey-dot" aria-hidden="true"></span>Remodelação com Arquitecto · Lisboa</p>
-    <h1 class="reveal reveal-d1">O apartamento<br>que sonhou,<br>com <em>acabamentos<br>premium.</em></h1>
+    <h1 class="reveal reveal-d1">O apartamento<br>que imaginou,<br>ao <em>preço<br>que acordou.</em></h1>
     <div class="hero-arch-badge reveal reveal-d2" aria-label="Diferencial">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       Oferta do projecto de arquitectura
@@ -391,10 +395,12 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
         <div class="field">
           <label for="f-name">Nome *</label>
           <input class="fi" type="text" id="f-name" placeholder="O seu nome" required autocomplete="name">
+          <span class="field-err-msg">Por favor indique o seu nome.</span>
         </div>
         <div class="field">
           <label for="f-tel">Telefone *</label>
           <input class="fi" type="tel" id="f-tel" placeholder="+351 9xx xxx xxx" required autocomplete="tel">
+          <span class="field-err-msg">Por favor indique o seu número de telefone.</span>
         </div>
         <div class="field">
           <label for="f-tipo">Tipo de obra *</label>
@@ -825,9 +831,26 @@ function faq(btn){
   if(!was){it.classList.add('open');btn.setAttribute('aria-expanded','true');}
 }
 
+// Form validation helpers
+document.addEventListener('DOMContentLoaded',function(){
+  ['f-name','f-tel'].forEach(function(id){
+    document.getElementById(id).addEventListener('input',function(){
+      this.classList.remove('fi-err');
+    });
+  });
+});
+
 // Form
 async function submitForm(e){
   e.preventDefault();
+  var fName=document.getElementById('f-name');
+  var fTel=document.getElementById('f-tel');
+  var fRgpd=document.getElementById('f-rgpd');
+  var valid=true;
+  if(!fName.value.trim()){fName.classList.add('fi-err');fName.focus();valid=false;}
+  if(!fTel.value.trim()){fTel.classList.add('fi-err');if(valid){fTel.focus();}valid=false;}
+  if(!fRgpd.checked){fRgpd.closest('.rgpd').classList.add('rgpd-err');valid=false;}else{fRgpd.closest('.rgpd').classList.remove('rgpd-err');}
+  if(!valid)return;
   var btn=document.getElementById('btn-submit');
   btn.disabled=true;
   btn.innerHTML='A enviar… <span class="btn-submit-ico" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>';
