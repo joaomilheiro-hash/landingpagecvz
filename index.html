@@ -80,11 +80,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 24px;display:fl
 .field label{display:block;font-size:.76rem;font-weight:600;color:var(--ink2);margin-bottom:5px;letter-spacing:.01em}
 .lbl-opt{font-weight:400;color:var(--ink3)}
 .fi{width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:9px;font-size:.87rem;color:var(--ink);background:var(--bg);font-family:var(--sans);transition:border-color .2s,box-shadow .2s;outline:none;appearance:none}
-.fi:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(42,92,69,.1)}
+.fi:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,144,42,.15)}
 .fi::placeholder{color:var(--ink3)}
 .rgpd{display:flex;align-items:flex-start;gap:8px;margin-bottom:16px;font-size:.76rem;color:var(--ink3);line-height:1.5}
 .rgpd input{margin-top:2px;accent-color:var(--gold);flex-shrink:0}
-.rgpd a{color:var(--cta);text-decoration:underline}
+.rgpd a{color:var(--ink2);text-decoration:underline}
 .btn-submit{width:100%;background:var(--cta);color:#fff;border:none;border-radius:100px;padding:16px 22px;font-size:.95rem;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .2s var(--ease-out),transform .15s,box-shadow .2s;box-shadow:0 6px 24px rgba(42,92,69,.45)}
 .btn-submit:hover{background:var(--cta-h);transform:scale(.99)}
 .btn-submit:disabled{opacity:.6;cursor:not-allowed}
@@ -95,6 +95,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 24px;display:fl
 .field-err-msg{font-size:.73rem;color:#C0392B;margin-top:4px;display:none}
 .fi-err~.field-err-msg{display:block}
 .rgpd-err label{color:var(--ink2)}
+.rgpd-err-msg{font-size:.73rem;color:#C0392B;margin-top:4px;display:none}
+.rgpd-err .rgpd-err-msg{display:block}
 
 /* MOBILE HERO */
 .hero-mobile-cta{display:none;flex-direction:column;gap:10px}
@@ -405,10 +407,10 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
         <div class="field">
           <label for="f-tipo">Tipo de obra *</label>
           <select class="fi" id="f-tipo" required>
-            <option value="">O que pretende remodelar?</option>
+            <option value="" disabled selected>O que pretende remodelar?</option>
             <option value="cozinha-casa-banho">Cozinha e/ou casa de banho</option>
             <option value="apartamento-completo">Apartamento completo</option>
-            <option value="reabilitacao">Reabilitação com estrutura</option>
+            <option value="remodelacao-estrutura">Remodelação com estrutura</option>
             <option value="preparar-venda">Preparar para venda ou arrendamento</option>
             <option value="outro">Outro</option>
           </select>
@@ -419,7 +421,10 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
         </div>
         <div class="rgpd">
           <input type="checkbox" id="f-rgpd" required>
-          <label for="f-rgpd">Aceito a <a href="#">Política de Privacidade</a> e autorizo o contacto para resposta a este pedido.</label>
+          <div>
+            <label for="f-rgpd">Aceito a <a href="#">Política de Privacidade</a> e autorizo o contacto para resposta a este pedido.</label>
+            <span class="rgpd-err-msg">Por favor aceite a política de privacidade para continuar.</span>
+          </div>
         </div>
         <button type="submit" class="btn-submit" id="btn-submit">
           Quero a minha avaliação gratuita
@@ -427,7 +432,7 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </span>
         </button>
-        <p class="form-note">Gratuito · Sem compromisso · Obras com agenda limitada</p>
+        <p class="form-note">Gratuito · Sem compromisso · Obras em número limitado</p>
       </form>
     </div>
   </div>
@@ -440,9 +445,9 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
     <span class="sstrip-stars" aria-label="5 estrelas">★★★★★</span>
     <span class="sstrip-txt"><strong>4,8 / 5</strong> · avaliações verificadas</span>
     <div class="sstrip-sep" aria-hidden="true"></div>
-    <span class="sstrip-quote">"O resultado de um arquitecto, a um preço justo" — Telmo Veloso</span>
+    <span class="sstrip-quote">"O resultado de um arquitecto, a um preço justo" · Telmo Veloso</span>
     <div class="sstrip-sep" aria-hidden="true"></div>
-    <span class="sstrip-quote">"Não me vejo a ir a outro lado tão cedo" — Cláudia Mendes</span>
+    <span class="sstrip-quote">"Não me vejo a ir a outro lado tão cedo" · Cláudia Mendes</span>
   </div>
 </div>
 
@@ -557,7 +562,7 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
       <div class="tipo-n">04</div>
       <div class="tipo-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg></div>
       <h3>Valorização para venda ou arrendamento</h3>
-      <p>Para investidores e proprietários que querem maximizar o retorno. O apartamento do Telmo Veloso recebeu uma proposta irrecusável logo após a obra.</p>
+      <p>Para investidores e proprietários que querem maximizar o retorno. Apartamentos reposicionados com projecto de arquitectura valorizam acima da média de mercado.</p>
     </div>
   </div>
 </section>
@@ -613,7 +618,7 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
       <div class="inc-hd">Garantias contratuais</div>
       <ul class="inc-list">
         <li><span class="inc-arrow">→</span>Avaliação inicial e oferta do projecto de arquitectura sem custos</li>
-        <li><span class="inc-arrow">→</span>Preço fixo — o valor contratado é o valor final</li>
+        <li><span class="inc-arrow">→</span>Preço fixo: o valor contratado é o valor final</li>
         <li><span class="inc-arrow">→</span>Prazo garantido por contrato escrito</li>
         <li><span class="inc-arrow">→</span>Garantia pós-obra para todos os trabalhos</li>
         <li><span class="inc-arrow">→</span>Resposta em menos de 24 horas úteis</li>
@@ -704,7 +709,7 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
     <div class="reveal">
       <div class="rev-card-shell"><div class="rev-card-core">
         <div class="rev-stars" aria-label="5 estrelas">★★★★★</div>
-        <p class="rev-text">"O apartamento ganhou tanto valor que recebi uma proposta que não pude recusar. São verdadeiros game changers na aquisição e valorização de imóveis em Lisboa."</p>
+        <p class="rev-text">"O apartamento ganhou tanto valor que recebi uma proposta que não pude recusar. São uma referência na valorização imobiliária em Lisboa."</p>
         <div class="rev-meta"><strong>Telmo Veloso</strong><span>Proprietário · Lisboa</span></div>
       </div></div>
     </div>
@@ -845,10 +850,12 @@ async function submitForm(e){
   e.preventDefault();
   var fName=document.getElementById('f-name');
   var fTel=document.getElementById('f-tel');
+  var fTipo=document.getElementById('f-tipo');
   var fRgpd=document.getElementById('f-rgpd');
   var valid=true;
   if(!fName.value.trim()){fName.classList.add('fi-err');fName.focus();valid=false;}
   if(!fTel.value.trim()){fTel.classList.add('fi-err');if(valid){fTel.focus();}valid=false;}
+  if(!fTipo.value){fTipo.classList.add('fi-err');if(valid){fTipo.focus();}valid=false;}else{fTipo.classList.remove('fi-err');}
   if(!fRgpd.checked){fRgpd.closest('.rgpd').classList.add('rgpd-err');valid=false;}else{fRgpd.closest('.rgpd').classList.remove('rgpd-err');}
   if(!valid)return;
   var btn=document.getElementById('btn-submit');
