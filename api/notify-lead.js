@@ -36,9 +36,10 @@ export default async function handler(req) {
   }
 
   const record = body.record || body;
-  const { name, phone, email, project_type, created_at } = record;
+  const { name, phone, email, project_type, source, created_at } = record;
 
   const tipoLabel = PROJECT_TYPES[project_type] || project_type || '—';
+  const sourceLabel = source === 'projetos' ? 'Bruno Câmara Arquitectos — Projetos' : 'CVZ Construções — Remodelação';
   const dataHora = created_at
     ? new Date(created_at).toLocaleString('pt-PT', { timeZone: 'Europe/Lisbon' })
     : new Date().toLocaleString('pt-PT', { timeZone: 'Europe/Lisbon' });
@@ -47,7 +48,7 @@ export default async function handler(req) {
 <div style="font-family:sans-serif;max-width:520px;margin:0 auto;color:#111">
   <div style="background:#1E7B50;padding:20px 28px;border-radius:10px 10px 0 0">
     <p style="margin:0;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6)">Novo lead</p>
-    <h1 style="margin:6px 0 0;font-size:1.2rem;color:#fff;font-weight:700">CVZ Construções</h1>
+    <h1 style="margin:6px 0 0;font-size:1.2rem;color:#fff;font-weight:700">${sourceLabel}</h1>
   </div>
   <div style="background:#fff;border:1px solid #e5e5e5;border-top:none;border-radius:0 0 10px 10px;padding:24px 28px">
     <table style="width:100%;border-collapse:collapse;font-size:.9rem">
@@ -55,6 +56,7 @@ export default async function handler(req) {
       <tr style="border-top:1px solid #f0f0f0"><td style="padding:8px 0;color:#666">Telefone</td><td style="padding:8px 0;font-weight:600">${phone || '—'}</td></tr>
       <tr style="border-top:1px solid #f0f0f0"><td style="padding:8px 0;color:#666">Email</td><td style="padding:8px 0">${email || '—'}</td></tr>
       <tr style="border-top:1px solid #f0f0f0"><td style="padding:8px 0;color:#666">Tipo de obra</td><td style="padding:8px 0">${tipoLabel}</td></tr>
+      <tr style="border-top:1px solid #f0f0f0"><td style="padding:8px 0;color:#666">Origem</td><td style="padding:8px 0">${sourceLabel}</td></tr>
       <tr style="border-top:1px solid #f0f0f0"><td style="padding:8px 0;color:#666">Data</td><td style="padding:8px 0;color:#888;font-size:.82rem">${dataHora}</td></tr>
     </table>
     <div style="margin-top:20px;padding-top:16px;border-top:1px solid #f0f0f0">
@@ -74,7 +76,7 @@ export default async function handler(req) {
       body: JSON.stringify({
         from: FROM,
         to: TO,
-        subject: `Novo lead CVZ — ${name || 'sem nome'} · ${tipoLabel}`,
+        subject: `Novo lead — ${name || 'sem nome'} · ${tipoLabel} · ${source === 'projetos' ? 'BCA Projetos' : 'CVZ'}`,
         html,
       }),
     });

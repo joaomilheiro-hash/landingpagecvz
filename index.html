@@ -931,7 +931,8 @@ async function submitForm(e){
     phone:document.getElementById('f-tel').value.trim(),
     email:document.getElementById('f-email').value.trim()||null,
     project_type:document.getElementById('f-tipo').value,
-    message:null
+    message:null,
+    source:'cvz'
   };
   try{
     var r=await fetch('https://erigsvepjkydtjntkjou.supabase.co/rest/v1/leads',{
