@@ -37,7 +37,12 @@ a{color:inherit;text-decoration:none}
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 24px;display:flex;justify-content:center}
 .nav-pill{max-width:var(--max);width:100%;display:flex;align-items:center;justify-content:space-between;background:rgba(250,249,246,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(0,0,0,.08);border-radius:100px;padding:8px 8px 8px 22px;gap:12px}
-.nav-logo{font-family:var(--serif);font-size:.95rem;font-weight:700;color:var(--ink);letter-spacing:-.02em}
+.nav-logo{display:flex;align-items:center;gap:12px;color:var(--ink)}
+.nav-logo img{display:block;width:auto;flex-shrink:0}
+.nav-logo-divider{width:1px;height:20px;background:var(--border);flex-shrink:0}
+.nav-logo-txt{font-family:var(--sans);font-size:.88rem;font-weight:700;letter-spacing:.01em;color:var(--ink);line-height:1;white-space:nowrap}
+@media(max-width:560px){.nav-logo img,.nav-logo-divider{display:none}}
+@media(max-width:360px){.nav-logo-txt{font-size:.78rem}}
 .nav-right{display:flex;align-items:center;gap:10px}
 .nav-link{font-size:.8rem;color:var(--ink2);padding:6px 12px;border-radius:100px;transition:color .2s}
 @media(hover:hover){.nav-link:hover{color:var(--ink)}}
@@ -344,7 +349,9 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
 <nav aria-label="Principal">
   <div class="nav-pill">
     <a class="nav-logo" href="https://cvz-construcoes.pt" target="_blank" rel="noopener">
-      <img src="/img/logo-cvz.svg" alt="CVZ Construções" height="30" style="display:block;width:auto;max-width:120px">
+      <img src="/img/logo-cvz.svg" alt="CVZ Construções" height="22" style="display:block;width:auto">
+      <span class="nav-logo-divider" aria-hidden="true"></span>
+      <span class="nav-logo-txt">CVZ Construções</span>
     </a>
     <div class="nav-right">
       <a href="#porque-arquitectos" class="nav-link">Porquê nós</a>
