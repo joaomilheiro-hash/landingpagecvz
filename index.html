@@ -158,7 +158,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 24px;display:fl
 .tipos-wrap{background:var(--bg);border-top:1px solid var(--border)}
 .tipos{max-width:var(--max);margin:0 auto;padding:80px 32px}
 .tipos-hd{margin-bottom:44px}
-.tipos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tipos-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .tipo{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:22px 18px;transition:border-color .25s var(--ease-out),box-shadow .25s var(--ease-out),transform .25s var(--ease-out)}
 @media(hover:hover){.tipo:hover{border-color:var(--cta-border);box-shadow:0 8px 28px rgba(0,0,0,.07);transform:translateY(-2px)}}
 .tipo-n{font-size:.75rem;font-weight:700;color:var(--gold);letter-spacing:.08em;margin-bottom:10px}
@@ -283,12 +283,6 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
 .band-lbl{font-size:.75rem;font-weight:600;color:rgba(255,255,255,.35);letter-spacing:.07em;text-transform:uppercase;margin-right:4px}
 .c-pill{font-size:.76rem;color:rgba(255,255,255,.65);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:5px 12px}
 
-/* MARQUEE */
-.mq-wrap{background:var(--ink);padding:11px 0;overflow:hidden}
-.mq-track{display:flex;gap:8px;width:max-content;animation:ticker 30s linear infinite;align-items:center}
-@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.mq-pill{font-size:.74rem;font-weight:600;color:rgba(255,255,255,.55);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:5px 14px;white-space:nowrap;flex-shrink:0}
-.mq-sep{color:var(--gold);font-size:.7rem;flex-shrink:0;opacity:.6}
 
 /* FORM ERROR INLINE */
 #form-err-msg{font-size:.78rem;color:#C0392B;margin-top:10px;text-align:center;display:none}
@@ -296,6 +290,25 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
 
 /* SCROLL OFFSET — nav is fixed */
 #form{scroll-margin-top:76px}
+
+/* MULTI-STEP FORM */
+@keyframes sp-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.sp-entering{animation:sp-in .22s var(--ease-out) both}
+.step-prog{display:flex;gap:5px;margin-bottom:16px;align-items:center}
+.sp-dot{height:3px;border-radius:2px;background:var(--border);transition:background .2s,width .2s;width:14px}
+.sp-dot.sp-active,.sp-dot.sp-done{background:var(--cta);width:24px}
+.step-q{font-size:.78rem;font-weight:700;color:var(--ink2);margin-bottom:12px;letter-spacing:.07em;text-transform:uppercase}
+.tipo-list{display:flex;flex-direction:column;gap:7px}
+.tipo-btn{display:flex;align-items:center;gap:11px;width:100%;background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:11px 13px;font-family:var(--sans);font-size:.85rem;font-weight:600;color:var(--ink);cursor:pointer;text-align:left;transition:border-color .18s,background .18s,transform .15s var(--ease-out)}
+@media(hover:hover){.tipo-btn:hover{border-color:var(--cta-border);background:var(--cta-light);transform:translateX(2px)}}
+.tipo-ico{width:18px;height:18px;flex-shrink:0;color:var(--ink3);transition:color .18s}
+.tipo-lbl{flex:1}
+.tipo-arr{color:var(--ink3);flex-shrink:0;transition:transform .15s}
+@media(hover:hover){.tipo-btn:hover .tipo-arr{transform:translateX(3px)}.tipo-btn:hover .tipo-ico{color:var(--cta)}}
+.step2-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.step-back-btn{background:none;border:none;padding:0;font-family:var(--sans);font-size:.78rem;color:var(--ink3);cursor:pointer;display:flex;align-items:center;gap:5px;transition:color .15s;max-width:65%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+@media(hover:hover){.step-back-btn:hover{color:var(--ink)}}
+.tel-hint{font-size:.76rem;color:var(--ink3);margin-top:4px}
 
 /* RESPONSIVE */
 @media(max-width:960px){
@@ -313,9 +326,7 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
   .rev-extra{grid-column:auto;flex-direction:column}
   .proc-include{grid-template-columns:1fr}
   .stats-i{flex-direction:column;text-align:center}
-  .sticky-mobile{display:flex}
-  body{padding-bottom:84px}
-  .float-wa{bottom:88px}
+  .float-wa{bottom:22px}
 }
 @media(max-width:600px){
   nav{padding:10px 14px}
@@ -340,8 +351,6 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
   .hf-title{font-size:1.1rem}
   .ft-top{flex-direction:column;gap:14px}
   .ft-links{flex-direction:column;gap:10px;align-items:flex-start}
-  body{padding-bottom:88px}
-  .float-wa{bottom:96px}
 }
 </style>
 </head>
@@ -374,26 +383,13 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
 <div class="hero-wrap">
 <div class="hero">
   <div>
-    <p class="hero-ey reveal"><span class="hero-ey-dot" aria-hidden="true"></span>Remodelação com Arquitecto · Lisboa</p>
-    <h1 class="reveal reveal-d1">O apartamento<br>que imaginou<br>ao <em>preço<br>que acordou</em></h1>
-    <div class="hero-arch-badge reveal reveal-d2" aria-label="Diferencial">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      Oferta do projeto de arquitectura
-    </div>
-    <p class="hero-sub reveal reveal-d2">Supervisionado por equipa premiada de engenheiros e arquitectos. Acabamentos premium selecionados ao detalhe. Preço fixo antes de assinar, sem surpresas a meio da obra.</p>
-    <div class="hero-mobile-cta reveal reveal-d3">
+    <p class="hero-ey reveal"><span class="hero-ey-dot" aria-hidden="true"></span>Remodelação Completa com Arquitecto · Lisboa</p>
+    <h1 class="reveal reveal-d1">O apartamento<br>que imaginou<span style="display:block;margin-top:.35em">com projeto de<br><em>arquitectura incluído</em></span></h1>
+    <p class="hero-sub reveal reveal-d2">Equipa própria de arquitectos e engenheiros. Preço fixo e prazo garantido por contrato.</p>
+    <div class="hero-mobile-cta reveal reveal-d2">
       <a href="#form" class="btn-cta-hero-m" onclick="ev('hero_cta_m')">Quero a minha avaliação →</a>
     </div>
-    <div class="hero-trust reveal reveal-d3">
-      <span class="ht"><span class="ht-ico"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>Oferta do projeto de arquitectura com cada obra</span>
-      <span class="ht"><span class="ht-ico"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>Acabamentos premium · prazo cumprido por contrato</span>
-      <span class="ht"><span class="ht-ico"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>Equipa premiada · Arquitectura + Engenharia em Lisboa</span>
-    </div>
-    <div class="hero-seal reveal reveal-d3" aria-label="Selo de qualidade">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      Qualidade CVZ · Obra Garantida · Arquitectura + Engenharia
-    </div>
-    <div class="hero-alts reveal reveal-d4">
+    <div class="hero-alts reveal reveal-d3">
       <a href="https://wa.me/351910285373?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20remodelação." class="btn-wa" target="_blank" rel="noopener" onclick="ev('hero_wa')">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
         WhatsApp
@@ -408,7 +404,7 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
   <!-- FORM — Double Bezel -->
   <div id="form" class="form-shell reveal reveal-d2">
     <div class="form-core">
-      <div class="hf-badge"><span class="hf-badge-dot" aria-hidden="true"></span>Aceitamos obras em número limitado · Q4 2026</div>
+      <div class="hf-badge"><span class="hf-badge-dot" aria-hidden="true"></span>Aceitamos obras em número limitado</div>
       <h2 class="hf-title">Descubra o potencial do seu apartamento</h2>
       <p class="hf-sub">Projeto de arquitectura incluído · Resposta em menos de 24h</p>
       <div id="form-ok" class="form-ok" aria-live="polite">
@@ -423,44 +419,97 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
         </a>
       </div>
       <form id="main-form" novalidate onsubmit="submitForm(event)">
-        <div class="field">
-          <label for="f-name">Nome *</label>
-          <input class="fi" type="text" id="f-name" placeholder="O seu nome" required autocomplete="name">
-          <span class="field-err-msg">Por favor indique o seu nome.</span>
-        </div>
-        <div class="field">
-          <label for="f-tel">Telefone *</label>
-          <input class="fi" type="tel" id="f-tel" placeholder="+351 9xx xxx xxx" required autocomplete="tel">
-          <span class="field-err-msg">Por favor indique o seu número de telefone.</span>
-        </div>
-        <div class="field">
-          <label for="f-tipo">Tipo de obra *</label>
-          <select class="fi" id="f-tipo" required>
-            <option value="" disabled selected>O que pretende remodelar?</option>
-            <option value="apartamento-completo">Apartamento completo</option>
-            <option value="preparar-venda">Preparar para venda ou arrendamento</option>
-            <option value="outro">Outro</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="f-email">Email <span class="lbl-opt">(opcional)</span></label>
-          <input class="fi" type="email" id="f-email" placeholder="o.seu@email.com" autocomplete="email">
-        </div>
-        <div class="rgpd">
-          <input type="checkbox" id="f-rgpd" required>
-          <div>
-            <label for="f-rgpd">Aceito a <a href="#">Política de Privacidade</a> e autorizo o contacto para resposta a este pedido.</label>
-            <span class="rgpd-err-msg">Por favor aceite a política de privacidade para continuar.</span>
+        <!-- Passo 1 — tipo -->
+        <div id="step-1">
+          <div class="step-prog"><span class="sp-dot sp-active" aria-hidden="true"></span><span class="sp-dot" aria-hidden="true"></span><span class="sp-dot" aria-hidden="true"></span></div>
+          <p class="step-q">O que pretende remodelar?</p>
+          <div class="tipo-list" role="group" aria-label="Tipo de obra">
+            <button type="button" class="tipo-btn" onclick="selectTipo(this,'apartamento-completo')">
+              <svg class="tipo-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span class="tipo-lbl">Apartamento completo</span>
+              <svg class="tipo-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <button type="button" class="tipo-btn" onclick="selectTipo(this,'para-arrendamento')">
+              <svg class="tipo-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
+              <span class="tipo-lbl">Para arrendamento</span>
+              <svg class="tipo-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <button type="button" class="tipo-btn" onclick="selectTipo(this,'preparar-venda')">
+              <svg class="tipo-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+              <span class="tipo-lbl">Preparar para venda</span>
+              <svg class="tipo-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <button type="button" class="tipo-btn" onclick="selectTipo(this,'outro')">
+              <svg class="tipo-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+              <span class="tipo-lbl">Outro</span>
+              <svg class="tipo-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
           </div>
         </div>
-        <button type="submit" class="btn-submit" id="btn-submit">
-          Quero a minha avaliação gratuita
-          <span class="btn-submit-ico" aria-hidden="true">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </span>
-        </button>
-        <p class="form-note">Gratuito · Sem compromisso · Obras em número limitado</p>
-        <p id="form-err-msg">Ocorreu um erro. Por favor contacte-nos diretamente pelo <a href="https://wa.me/351910285373" target="_blank" rel="noopener">WhatsApp</a>.</p>
+        <!-- Passo 2 — orçamento -->
+        <div id="step-2" style="display:none">
+          <div class="step2-top">
+            <button type="button" class="step-back-btn" onclick="goBack(2)">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              <span id="step-back-label-2">Voltar</span>
+            </button>
+            <div class="step-prog"><span class="sp-dot sp-done" aria-hidden="true"></span><span class="sp-dot sp-active" aria-hidden="true"></span><span class="sp-dot" aria-hidden="true"></span></div>
+          </div>
+          <p class="step-q">Orçamento estimado para a obra?</p>
+          <div class="tipo-list" role="group" aria-label="Orçamento estimado">
+            <button type="button" class="tipo-btn" onclick="selectBudget(this,'30k-60k')">
+              <svg class="tipo-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              <span class="tipo-lbl">30.000 € – 60.000 €</span>
+              <svg class="tipo-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <button type="button" class="tipo-btn" onclick="selectBudget(this,'60k-100k')">
+              <svg class="tipo-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span class="tipo-lbl">60.000 € – 100.000 €</span>
+              <svg class="tipo-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <button type="button" class="tipo-btn" onclick="selectBudget(this,'100k+')">
+              <svg class="tipo-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <span class="tipo-lbl">+100.000 €</span>
+              <svg class="tipo-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+        <!-- Passo 3 — contacto -->
+        <div id="step-3" style="display:none">
+          <div class="step2-top">
+            <button type="button" class="step-back-btn" onclick="goBack(3)">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              <span id="step-back-label-3">Voltar</span>
+            </button>
+            <div class="step-prog"><span class="sp-dot sp-done" aria-hidden="true"></span><span class="sp-dot sp-done" aria-hidden="true"></span><span class="sp-dot sp-active" aria-hidden="true"></span></div>
+          </div>
+          <div class="field">
+            <label for="f-name">Nome *</label>
+            <input class="fi" type="text" id="f-name" placeholder="O seu nome" required autocomplete="name">
+            <span class="field-err-msg">Por favor indique o seu nome.</span>
+          </div>
+          <div class="field">
+            <label for="f-tel">Telefone *</label>
+            <input class="fi" type="tel" id="f-tel" placeholder="+351 9xx xxx xxx" required autocomplete="tel">
+            <span class="field-err-msg">Por favor indique o seu número de telefone.</span>
+            <p class="tel-hint">Só para contacto sobre o seu caso. Sem spam.</p>
+          </div>
+          <div class="rgpd">
+            <input type="checkbox" id="f-rgpd" required>
+            <div>
+              <label for="f-rgpd">Aceito a <a href="/politica-privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a> e autorizo o contacto para resposta a este pedido.</label>
+              <span class="rgpd-err-msg">Por favor aceite a política de privacidade para continuar.</span>
+            </div>
+          </div>
+          <button type="submit" class="btn-submit" id="btn-submit">
+            Quero a minha avaliação gratuita
+            <span class="btn-submit-ico" aria-hidden="true">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </button>
+          <p class="form-note">Gratuito · Sem compromisso · Obras em número limitado</p>
+          <p id="form-err-msg">Ocorreu um erro. Por favor contacte-nos diretamente pelo <a href="https://wa.me/351910285373" target="_blank" rel="noopener">WhatsApp</a>.</p>
+        </div>
       </form>
     </div>
   </div>
@@ -479,32 +528,6 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
   </div>
 </div>
 
-<!-- MARQUEE TICKER -->
-<div class="mq-wrap" aria-hidden="true">
-  <div class="mq-track">
-    <span class="mq-pill">Projeto de Arquitectura Incluído</span><span class="mq-sep">▸</span>
-    <span class="mq-pill">Preço Fixo por Contrato</span><span class="mq-sep">▸</span>
-    <span class="mq-pill">Prazo Garantido</span><span class="mq-sep">▸</span>
-    <span class="mq-pill">Supervisão Diária em Obra</span><span class="mq-sep">▸</span>
-    <span class="mq-pill">+50 Obras Concluídas</span><span class="mq-sep">▸</span>
-    <span class="mq-pill">Acabamentos Premium</span><span class="mq-sep">▸</span>
-    <span class="mq-pill">12 Anos de Experiência</span><span class="mq-sep">▸</span>
-    <span class="mq-pill">Alvará em Dia · Seguros Ativos</span><span class="mq-sep">▸</span>
-    <span class="mq-pill">Arquitectura + Engenharia</span><span class="mq-sep">▸</span>
-    <span class="mq-pill">Lisboa e Grande Lisboa</span><span class="mq-sep">▸</span>
-    <!-- duplicate for seamless loop -->
-    <span class="mq-pill">Projeto de Arquitectura Incluído</span><span class="mq-sep">▸</span>
-    <span class="mq-pill">Preço Fixo por Contrato</span><span class="mq-sep">▸</span>
-    <span class="mq-pill">Prazo Garantido</span><span class="mq-sep">▸</span>
-    <span class="mq-pill">Supervisão Diária em Obra</span><span class="mq-sep">▸</span>
-    <span class="mq-pill">+50 Obras Concluídas</span><span class="mq-sep">▸</span>
-    <span class="mq-pill">Acabamentos Premium</span><span class="mq-sep">▸</span>
-    <span class="mq-pill">12 Anos de Experiência</span><span class="mq-sep">▸</span>
-    <span class="mq-pill">Alvará em Dia · Seguros Ativos</span><span class="mq-sep">▸</span>
-    <span class="mq-pill">Arquitectura + Engenharia</span><span class="mq-sep">▸</span>
-    <span class="mq-pill">Lisboa e Grande Lisboa</span><span class="mq-sep">▸</span>
-  </div>
-</div>
 
 <!-- PORQUE ARQUITECTOS -->
 <div class="diff-wrap" id="porque-arquitectos">
@@ -577,8 +600,8 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
           </div>
           <div class="dc-eyebrow">Diferencial #5</div>
           <h3 class="dc-title" style="font-size:1.1rem">Confiança comprovada</h3>
-          <p class="dc-body">Mais de 12 anos no mercado, mais de 50 obras concluídas e presença em publicações da especialidade. Alvará de construção em dia, seguros de obra e responsabilidade civil ativos. Contrato escrito com âmbito, prazo e valor fixados antes de avançar. A tranquilidade que um empreiteiro informal nunca pode garantir.</p>
-          <div class="dc-tag">Alvará em dia · Com seguros · +50 obras</div>
+          <p class="dc-body">Mais de 12 anos no mercado, mais de 100 obras concluídas e presença em publicações da especialidade. Alvará de construção em dia, seguros de obra e responsabilidade civil ativos. Contrato escrito com âmbito, prazo e valor fixados antes de avançar. A tranquilidade que um empreiteiro informal nunca pode garantir.</p>
+          <div class="dc-tag">Alvará em dia · Com seguros · +100 obras</div>
         </div>
       </div>
     </div>
@@ -636,7 +659,7 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
       <div class="step-dot" aria-hidden="true">03</div>
       <h3>Execução supervisionada</h3>
       <p>Reuniões mensais em obra, acompanhamento semanal pela equipa de arquitectura e supervisão diária pela engenharia. O valor contratado não se altera.</p>
-      <span class="step-time">12–20 meses</span>
+      <span class="step-time">6–10 meses</span>
     </div>
     <div class="step reveal reveal-d3">
       <div class="step-dot" aria-hidden="true">04</div>
@@ -685,7 +708,7 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
     <div class="pc reveal reveal-d1"><div class="pc-img"><img src="/img/artilharia.jpg" alt="Remodelação em Artilharia 1, Campo de Ourique" loading="lazy"></div><div class="pc-body"><div class="pc-zone">Campo de Ourique</div><div class="pc-title">Artilharia 1</div><div class="pc-type">Remodelação completa · com projeto</div></div></div>
     <div class="pc reveal reveal-d2"><div class="pc-img"><img src="/img/avroma.jpg" alt="Remodelação de apartamento na Avenida de Roma, Alvalade" loading="lazy"></div><div class="pc-body"><div class="pc-zone">Alvalade</div><div class="pc-title">Avenida de Roma</div><div class="pc-type">Remodelação completa · com projeto</div></div></div>
     <div class="pc reveal reveal-d3"><div class="pc-img"><img src="/img/campogrande.jpg" alt="Remodelação em Campo Grande, Lisboa" loading="lazy"></div><div class="pc-body"><div class="pc-zone">Campo Grande</div><div class="pc-title">Campo Grande</div><div class="pc-type">Remodelação completa · com projeto</div></div></div>
-    <div class="pc reveal"><div class="pc-img"><img src="/img/rato.jpg" alt="Remodelação parcial no Largo do Rato, Lisboa" loading="lazy"></div><div class="pc-body"><div class="pc-zone">Rato</div><div class="pc-title">Largo do Rato</div><div class="pc-type">Remodelação parcial · com projeto</div></div></div>
+    <div class="pc reveal"><div class="pc-img"><img src="/img/rato.jpg" alt="Remodelação de apartamento no Largo do Rato, Lisboa" loading="lazy"></div><div class="pc-body"><div class="pc-zone">Rato</div><div class="pc-title">Largo do Rato</div><div class="pc-type">Remodelação completa · com projeto</div></div></div>
     <div class="pc reveal reveal-d1"><div class="pc-img"><img src="/img/caxias.jpg" alt="Remodelação completa em Caxias, Oeiras" loading="lazy"></div><div class="pc-body"><div class="pc-zone">Oeiras</div><div class="pc-title">Caxias</div><div class="pc-type">Remodelação completa · com projeto</div></div></div>
     <div class="pc reveal reveal-d2"><div class="pc-img"><img src="/img/avberna.jpg" alt="Remodelação de apartamento na Avenida de Berna, Lisboa" loading="lazy"></div><div class="pc-body"><div class="pc-zone">São Sebastião</div><div class="pc-title">Avenida de Berna</div><div class="pc-type">Remodelação completa · com projeto</div></div></div>
     <div class="pc reveal reveal-d3"><div class="pc-img"><img src="/img/campodourique.jpg" alt="Remodelação em Campo de Ourique, Lisboa" loading="lazy"></div><div class="pc-body"><div class="pc-zone">Campo de Ourique</div><div class="pc-title">Campo de Ourique</div><div class="pc-type">Remodelação completa · com projeto</div></div></div>
@@ -697,7 +720,7 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
 <div class="stats-wrap" aria-label="Números CVZ">
   <div class="stats-i">
     <div class="stat reveal">
-      <div class="stat-val">+50</div>
+      <div class="stat-val">+100</div>
       <div class="stat-lbl">Obras concluídas em Lisboa</div>
     </div>
     <div class="stat reveal reveal-d1">
@@ -744,7 +767,7 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
     <div class="reveal reveal-d2">
       <div class="rev-card-shell"><div class="rev-card-core">
         <div class="rev-stars" aria-label="5 estrelas">★★★★★</div>
-        <p class="rev-text">"Começou numa simples redefinição de cozinha e acabou num projeto estruturante para a casa. Concluído num excelente equilíbrio entre o que era necessário e o que era possível."</p>
+        <p class="rev-text">"Desde o primeiro dia senti que havia um projecto pensado de raiz para o apartamento. O resultado excedeu as expectativas e o prazo foi mesmo cumprido."</p>
         <div class="rev-meta"><strong>Francisco Costa</strong><span>Proprietário · Lisboa</span></div>
       </div></div>
     </div>
@@ -786,7 +809,7 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="faq(this)" aria-expanded="false">Quanto tempo demora a obra?<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-      <div class="faq-a"><div class="faq-ai"><p class="faq-ai-p">Uma remodelação completa demora tipicamente 12 a 20 meses, desde o arranque do projeto de arquitectura até à entrega final, dependendo da dimensão e do nível de acabamentos. O prazo é definido por contrato e é garantido. Atualizamos o cliente regularmente sobre o estado dos trabalhos.</p></div></div>
+      <div class="faq-a"><div class="faq-ai"><p class="faq-ai-p">Uma remodelação completa demora tipicamente 6 a 10 meses, desde o arranque do projeto de arquitectura até à entrega final, dependendo da dimensão e do nível de acabamentos. O prazo é definido por contrato e é garantido. Atualizamos o cliente regularmente sobre o estado dos trabalhos.</p></div></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="faq(this)" aria-expanded="false">O preço pode mudar a meio da obra?<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
@@ -811,7 +834,7 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
 <!-- FINAL CTA -->
 <div class="fcta-wrap">
   <div class="fcta reveal">
-    <div class="fcta-ey">Agenda de obras a preencher · Q4 2026</div>
+    <div class="fcta-ey">Agenda de obras a preencher</div>
     <h2>O apartamento que imaginou,<br>ao <em>preço real.</em></h2>
     <p>Equipa premiada de arquitectos e engenheiros. Projeto incluído. Acabamentos premium. Contrato com garantias reais, para habitação própria ou investimento.<br>Respondemos em menos de 24 horas.</p>
     <div class="fcta-btns">
@@ -846,9 +869,10 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
       </span>
       <div class="ft-links">
         <a href="tel:+351910285373" class="ft-link">+351 910 285 373</a>
-        <a href="mailto:info@cvz-construcoes.pt" class="ft-link">info@cvz-construcoes.pt</a>
+        <a href="mailto:info@remodelacoes.cvz-construcoes.pt" class="ft-link">info@remodelacoes.cvz-construcoes.pt</a>
         <a href="https://wa.me/351910285373" class="ft-link" target="_blank" rel="noopener">WhatsApp</a>
         <a href="https://cvz-construcoes.pt" class="ft-link" target="_blank" rel="noopener">cvz-construcoes.pt</a>
+        <a href="/politica-privacidade.html" class="ft-link">Política de Privacidade</a>
       </div>
     </div>
     <span class="ft-copy">© 2026 CVZ Construções · Lisboa, Portugal · Remodelação de apartamentos com projeto de arquitectura incluído</span>
@@ -860,17 +884,6 @@ footer{background:var(--espresso);padding:36px 32px;border-top:1px solid rgba(25
   <svg width="25" height="25" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
 </button>
 
-<!-- STICKY MOBILE BAR -->
-<div class="sticky-mobile" aria-label="Contacto rápido">
-  <a href="#form" class="sm-cta" onclick="ev('sticky_form')">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    Garantir avaliação
-  </a>
-  <a href="https://wa.me/351910285373?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20remodelação." class="sm-wa" target="_blank" rel="noopener" onclick="ev('sticky_wa')">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-    WhatsApp
-  </a>
-</div>
 
 <script>
 // Scroll reveal
@@ -906,7 +919,7 @@ function faq(btn){
 
 // Form validation helpers
 document.addEventListener('DOMContentLoaded',function(){
-  ['f-name','f-tel','f-tipo'].forEach(function(id){
+  ['f-name','f-tel'].forEach(function(id){
     document.getElementById(id).addEventListener('input',function(){
       this.classList.remove('fi-err');
       document.getElementById('form-err-msg').style.display='none';
@@ -914,30 +927,66 @@ document.addEventListener('DOMContentLoaded',function(){
   });
 });
 
+// Multi-step
+var selectedTipo='';var selectedBudget='';
+function _animNext(from,to,onDone){
+  from.style.transition='opacity .18s var(--ease-out),transform .18s var(--ease-out)';
+  from.style.opacity='0';from.style.transform='translateX(-16px)';
+  setTimeout(function(){
+    from.style.display='none';from.style.transition='';from.style.opacity='';from.style.transform='';
+    to.style.display='block';to.classList.remove('sp-entering');void to.offsetWidth;
+    to.classList.add('sp-entering');if(onDone)onDone();
+  },185);
+}
+function _animBack(from,to){
+  from.style.transition='opacity .18s var(--ease-out),transform .18s var(--ease-out)';
+  from.style.opacity='0';from.style.transform='translateX(16px)';
+  setTimeout(function(){
+    from.style.display='none';from.style.transition='';from.style.opacity='';from.style.transform='';
+    from.classList.remove('sp-entering');to.style.display='block';
+    to.classList.remove('sp-entering');void to.offsetWidth;
+    to.classList.add('sp-entering');setTimeout(function(){to.classList.remove('sp-entering');},230);
+  },185);
+}
+function selectTipo(btn,val){
+  selectedTipo=val;ev('form_tipo');
+  document.getElementById('step-back-label-2').textContent=btn.querySelector('.tipo-lbl').textContent;
+  _animNext(document.getElementById('step-1'),document.getElementById('step-2'));
+}
+function selectBudget(btn,val){
+  selectedBudget=val;ev('form_budget');
+  document.getElementById('step-back-label-3').textContent=btn.querySelector('.tipo-lbl').textContent;
+  _animNext(document.getElementById('step-2'),document.getElementById('step-3'),function(){document.getElementById('f-name').focus();});
+}
+function goBack(fromStep){
+  if(fromStep===2){selectedTipo='';_animBack(document.getElementById('step-2'),document.getElementById('step-1'));}
+  else{selectedBudget='';_animBack(document.getElementById('step-3'),document.getElementById('step-2'));}
+}
+
 // Form
 async function submitForm(e){
   e.preventDefault();
   var fName=document.getElementById('f-name');
   var fTel=document.getElementById('f-tel');
-  var fTipo=document.getElementById('f-tipo');
   var fRgpd=document.getElementById('f-rgpd');
   var valid=true;
   if(!fName.value.trim()){fName.classList.add('fi-err');fName.focus();valid=false;}
   if(!fTel.value.trim()){fTel.classList.add('fi-err');if(valid){fTel.focus();}valid=false;}
-  if(!fTipo.value){fTipo.classList.add('fi-err');if(valid){fTipo.focus();}valid=false;}else{fTipo.classList.remove('fi-err');}
   if(!fRgpd.checked){fRgpd.closest('.rgpd').classList.add('rgpd-err');valid=false;}else{fRgpd.closest('.rgpd').classList.remove('rgpd-err');}
   if(!valid)return;
   var btn=document.getElementById('btn-submit');
   btn.disabled=true;
   btn.innerHTML='A enviar… <span class="btn-submit-ico" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>';
   var payload={
-    name:document.getElementById('f-name').value.trim(),
-    phone:document.getElementById('f-tel').value.trim(),
-    email:document.getElementById('f-email').value.trim()||null,
-    project_type:document.getElementById('f-tipo').value,
+    name:fName.value.trim(),
+    phone:fTel.value.trim(),
+    email:null,
+    project_type:selectedTipo||'outro',
+    budget:selectedBudget||null,
     message:null,
     source:'cvz'
   };
+  if(window.dataLayer)window.dataLayer.push({event:'form_submit_cvz',tipo:selectedTipo,budget:selectedBudget});
   try{
     var r=await fetch('https://erigsvepjkydtjntkjou.supabase.co/rest/v1/leads',{
       method:'POST',
@@ -955,7 +1004,7 @@ async function submitForm(e){
     document.getElementById('form-ok').style.display='block';
   }catch(err){
     btn.disabled=false;
-    btn.innerHTML='Garantir a minha avaliação gratuita <span class="btn-submit-ico" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>';
+    btn.innerHTML='Quero a minha avaliação gratuita <span class="btn-submit-ico" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>';
     var errEl=document.getElementById('form-err-msg');errEl.style.display='block';
   }
 }

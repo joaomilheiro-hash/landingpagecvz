@@ -11,7 +11,7 @@ const FROM_CVZ      = 'leads@remodelacoes.cvz-construcoes.pt';
 const FROM_PROJETOS = 'leads@projetos.brunocamaraarquitectos.com';
 
 const PROJECT_TYPES = {
-  'cozinha-casa-banho':  'Cozinha e/ou casa de banho',
+  'para-arrendamento':   'Para arrendamento — rendimento máximo',
   'apartamento-completo':'Apartamento completo',
   'remodelacao-estrutura':'Remodelação com estrutura',
   'preparar-venda':      'Preparar para venda ou arrendamento',
@@ -41,7 +41,9 @@ export default async function handler(req) {
   }
 
   const record = body.record || body;
-  const { name, phone, email, project_type, source, created_at } = record;
+  const { name, phone, email, project_type, budget, source, created_at } = record;
+  const BUDGET_LABELS = { '30k-60k':'30.000 € – 60.000 €', '60k-100k':'60.000 € – 100.000 €', '100k+':'+100.000 €' };
+  const budgetLabel = BUDGET_LABELS[budget] || budget || '—';
 
   const isProjetos  = source === 'projetos';
   const tipoLabel   = PROJECT_TYPES[project_type] || project_type || '—';
@@ -64,7 +66,8 @@ export default async function handler(req) {
       <tr><td style="padding:8px 0;color:#666;width:130px">Nome</td><td style="padding:8px 0;font-weight:600">${name || '—'}</td></tr>
       <tr style="border-top:1px solid #f0f0f0"><td style="padding:8px 0;color:#666">Telefone</td><td style="padding:8px 0;font-weight:600">${phone || '—'}</td></tr>
       <tr style="border-top:1px solid #f0f0f0"><td style="padding:8px 0;color:#666">Email</td><td style="padding:8px 0">${email || '—'}</td></tr>
-      <tr style="border-top:1px solid #f0f0f0"><td style="padding:8px 0;color:#666">Tipo de obra</td><td style="padding:8px 0">${tipoLabel}</td></tr>
+      <tr style="border-top:1px solid #f0f0f0"><td style="padding:8px 0;color:#666">Tipo de projeto</td><td style="padding:8px 0">${tipoLabel}</td></tr>
+      ${!isProjetos ? `<tr style="border-top:1px solid #f0f0f0"><td style="padding:8px 0;color:#666">Orçamento estimado</td><td style="padding:8px 0;font-weight:600">${budgetLabel}</td></tr>` : ''}
       <tr style="border-top:1px solid #f0f0f0"><td style="padding:8px 0;color:#666">Origem</td><td style="padding:8px 0">${sourceLabel}</td></tr>
       <tr style="border-top:1px solid #f0f0f0"><td style="padding:8px 0;color:#666">Data</td><td style="padding:8px 0;color:#888;font-size:.82rem">${dataHora}</td></tr>
     </table>
